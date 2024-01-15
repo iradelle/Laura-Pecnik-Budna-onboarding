@@ -9,6 +9,33 @@ body {
     margin: auto;
     overflow: hidden;
 }
+.grid-container {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-auto-rows: minmax(150px, auto);
+    gap: 10px;
+    color: #333;
+    clear: both;
+}
+.grid-container div {
+    background: #ccc;
+    padding: 10px;
+}
+.grid-container div:hover {
+    background: #aaa;
+}
+.grid-item-1 {
+    grid-column: span 2;
+    margin-top: 20px;
+}
+.grid-item-2 {
+    grid-column: span 1;
+    margin-bottom: 20px;
+}
+.grid-item-3 {
+    grid-column: span 1;
+    margin-bottom: 20px;
+}
 .clearFix {
     clear: both;
 }
