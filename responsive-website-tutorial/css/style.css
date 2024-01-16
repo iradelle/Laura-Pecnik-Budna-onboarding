@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 :root {
-    --primary-color: #047aed
+    --primary-color: #047aed;
+    --secondary-color: #1c3fa8;
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
 }
 
 * {
@@ -110,6 +113,41 @@ img {
 
 .showcase-form input:focus {
     outline: none;
+}¸
+
+.showcase::before, .showcase::after {
+    content: '';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background: white;
+    /* skew prestavi content pod določen kot */
+    transform: skewY(-2deg);
+    -webkit-transform: skewY(-2deg);
+    -moz-transform: skewY(-2deg);
+    -ms-transform: skewY(-2deg);
+}
+
+/* Stats */
+.stats {
+    padding-top: 100px;
+}
+
+.stats-heading {
+    max-width: 500px;
+    margin: auto;
+}
+
+.stats .grid h3 {
+    font-size: 35px;
+}
+
+.stats .grid p {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
 /* Utilities */
@@ -124,7 +162,7 @@ img {
     background-color: white;
     color: #333;
     border-radius: 10px;
-    box-shadow: 0 3px 10pc rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 1pc rgba(0, 0, 0, 0.2);
     padding: 20px;
     margin: 10px;
 }
@@ -148,6 +186,61 @@ img {
     transform: scale(0.98);
 }
 
+/* Backgrounds and colored buttons */
+.bg-primary, .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.bg-secondary, .btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.bg-dark, .btn-dark {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.bg-light, .btn-light {
+    background-color: var(--light-color);
+    color: white;
+}
+
+.bg-primary a,
+.btn-primary a,
+.bg-secondary a, 
+.btn-secondary a,
+.bg-dark a, 
+.btn-dark a {
+    color: white;
+}
+
+/* Text sizes */
+.lead {
+    font-size: 20px;
+}
+
+.sm {
+    font-size: 1rem;
+}
+
+.md {
+    font-size: 2rem;
+}
+
+.lg {
+    font-size: 3rem;
+}
+
+.xl {
+    font-size: 4rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
 .flex {
     display: flex;
     justify-content: center;
@@ -162,4 +255,146 @@ img {
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Margins */
+
+/* Okrog */
+.m-1 {
+    /* 1 rem = 16px */
+    margin: 1rem;
+}
+
+.m-2 {
+    margin: 2rem;
+}
+
+.m-3 {
+    margin: 3rem;
+}
+
+.m-4 {
+    margin: 4rem;
+}
+
+.m-5 {
+    margin: 4rem;
+}
+
+/* Zgorej in spodej */
+
+.my-1 {
+    /* 1 rem = 16px */
+    margin: 1rem 0;
+}
+
+.my-2 {
+    margin: 2rem 0;
+}
+
+.my-3 {
+    margin: 3rem 0;
+}
+
+.my-4 {
+    margin: 4rem 0;
+}
+
+.my-5 {
+    margin: 4rem 0;
+}
+
+/* Padding */
+
+/* Okrog */
+.p-1 {
+    /* 1 rem = 16px */
+    padding: 1rem;
+}
+
+.p-2 {
+    padding: 2rem;
+}
+
+.p-3 {
+    padding: 3rem;
+}
+
+.p-4 {
+    padding: 4rem;
+}
+
+.p-5 {
+    padding: 4rem;
+}
+
+/* Zgorej in spodej */
+.py-1 {
+    /* 1 rem = 16px */
+    padding: 1rem 0;
+}
+
+.py-2 {
+    padding: 2rem 0;
+}
+
+.py-3 {
+    padding: 3rem 0;
+}
+
+.py-4 {
+    padding: 4rem 0;
+}
+
+.py-5 {
+    padding: 4rem 0;
+}
+
+/* CLI */
+.cli {
+    background: white;
+}
+
+.cli .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.cli .grid > *:first-child {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+/* Cloud */
+.cloud .grid {
+    grid-template-columns: 4fr 3fr;
+}
+
+/* Languages */
+.languages .flex {
+    flex-wrap: wrap;
+}
+
+.languages .card {
+    text-align: center;
+    margin: 18px 10px 40px;
+    transition: transform 0.2s ease;
+}
+
+.languages .card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.languages .card:hover {
+    transform: translateY(-15px);
+}
+
+/* Footer */
+.footer .social a {
+    margin: 0 10px;
 }
