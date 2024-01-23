@@ -1,34 +1,9 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import './components/list';
-import List from './components/list';
-import AddToList from './components/AddToList';
-
-export interface IState {
-  people: {
-    name: string,
-    age: number,
-    url: string,
-    note?: string
-  }[]
-}
-
-function App() {
-
-  // const [number, setNumber] = useState(5); /*< number | string > number or string*/
-
-  // const changeNumber = () => {
-  //   setNumber(10)
-  // }
-
-  const [people, setPeople] = useState<IState["people"]> ( [
-    {
-    name: "Brendon Urie",
+{
+      name: "Brendon Urie",
       url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfFNldVGZPtD1OtlBy1baIfn4IrAIKLY1dAA&usqp=CAU",
       age: 36,
       note: "Will not come if there's no beer."
-    },
+    }, 
     {
       name: "Daveed Diggs",
       url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiFo3ZQjE2brbZ6jZg3uwUwhLMTorphdvxfg&usqp=CAU",
@@ -47,20 +22,3 @@ function App() {
       age: 46,
       note: "Check if he took his pills before entering."
     }
-    ] ); /* [ ] pomeni da je array of objects */
-
-  // // map through people
-  // people.map(person => {
-  //   person.age;
-  // })
-
-  return (
-    <div className="App">
-      <h1>People invited to our Party</h1>
-      <AddToList people={people} setPeople={setPeople}/>
-      <List people={people}/>
-    </div>
-  );
-}
-
-export default App;
