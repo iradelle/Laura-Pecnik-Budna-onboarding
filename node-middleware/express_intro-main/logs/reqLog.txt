@@ -66,3 +66,9 @@
 20240119	13:35:19	36564091-d284-4b2b-a82c-b40cf8c4e593	GET	undefined	/new-page.html
 20240119	13:35:19	ec8c14fa-a0f4-4494-8a7c-41a6fec74c93	GET	undefined	/css/style.css
 20240119	13:35:19	7e75f0d1-be85-49c9-b0c9-b5f5fbd938a8	GET	undefined	/img/img1.jpg
+20240119	14:12:24	65eb6966-b88b-4b39-a4ea-921fb1c3e36e	GET	undefined	/employees
+20240119	14:12:53	43f7573c-31f0-494c-93a0-37653ac12e66	DELETE	undefined	/employees
+20240119	14:13:07	2db4a334-5447-49dc-be9f-298562c41353	PUT	undefined	/employees
+20240119	14:13:40	fdb03475-ffc8-40f3-8f31-c9310441d6cc	POST	undefined	/employees
+20240119	15:00:14	1f9f0e4e-b9b7-4874-8875-9edc1fb41c11	POST	undefined	/employees
+20240119	15:02:17	7e97f566-206d-4e34-a751-b3e8b84ee113	PUT	undefined	/employees
