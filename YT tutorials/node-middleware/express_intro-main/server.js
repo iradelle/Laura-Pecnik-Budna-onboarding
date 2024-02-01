@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
-const {logger} = require('../express_intro-main/middleware/logEvents');
+const {logger} = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const PORT = process.env.PORT || 3500;
 
