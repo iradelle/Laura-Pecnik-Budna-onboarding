@@ -29,7 +29,7 @@ export class AbstractService {
         }
     }
     
-    async findById(id: string, relations = []): Promise<any[]> {
+    async findById(id: string, relations = []): Promise<any> {
         try {
             const element = await this.repository.findOne(
                 {
@@ -88,4 +88,6 @@ export class AbstractService {
         }
             
     }
+
+    
 }
