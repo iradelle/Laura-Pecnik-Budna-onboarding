@@ -15,5 +15,4 @@ export const ORMConfig = async(configService: ConfigService): Promise<Connection
     database: configService.get('DATABASE_NAME'),
     entities: ['dist/**/*.entity.ts'],
     synchronize: true, // only in development
-    ssl: true
 })
