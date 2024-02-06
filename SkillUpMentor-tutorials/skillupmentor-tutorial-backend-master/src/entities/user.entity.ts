@@ -20,9 +20,9 @@ export class User extends Base {
     @Exclude()// will not show when searching for users
     password: string
 
-    @Column({nullable: true, default: null})
-    @Exclude()// will not show when searching for users
-    refresh_token: string
+    // @Column({nullable: true, default: null})
+    // @Exclude()// will not show when searching for users
+    // refresh_token: string
 
     // role: Role | null
 }
