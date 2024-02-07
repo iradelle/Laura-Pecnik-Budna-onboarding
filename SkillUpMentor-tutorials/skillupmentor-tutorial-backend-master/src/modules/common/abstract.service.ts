@@ -4,6 +4,7 @@ import { PaginatedResult } from 'interfaces/paginated.result.interface';
 import Logging from 'library/logging';
 import { Repository } from 'typeorm';
 
+
 @Injectable()
 export class AbstractService {
     constructor(protected readonly repository: Repository<any>) {}
@@ -17,7 +18,7 @@ export class AbstractService {
         }
     } 
     
-    async findBy(condition, relations = []): Promise<any[]> {
+    async findBy(condition, relations = []): Promise<any[] | any> {
         try {
             return this.repository.find({
                 where: condition,
