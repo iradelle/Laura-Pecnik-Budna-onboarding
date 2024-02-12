@@ -8,6 +8,7 @@ import Logging from 'library/logging';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { hash, compareHash } from 'utils/bcrypt';
 import { PostgresErrorCode } from 'helpers/postgresErrorCode.enum';
+import { use } from 'passport';
 
 @Injectable()
 export class UsersService extends AbstractService {
@@ -23,7 +24,7 @@ export class UsersService extends AbstractService {
         }
 
         try {
-            const newUser= this.usersRepository.create({ ...createUserDto })
+            const newUser= this.usersRepository.create({ ...createUserDto, role:  {id: createUserDto.role_id}})
             return this.usersRepository.save(newUser)
         } catch (error) {
             Logging.error(error)
@@ -37,7 +38,10 @@ export class UsersService extends AbstractService {
 
         if(user.email !== email && email) {
             user.email = email
+        } else if (email && user.email === email) {
+            throw new BadRequestException('User with that email already exists.')
         }
+
         if(password && confirm_password) {
             if(password !== confirm_password) {
                 throw new BadRequestException('Passwords do not match.')
@@ -47,9 +51,10 @@ export class UsersService extends AbstractService {
             }
             user.password = await hash(password)
         }
-        // if(role_id) {
-        //     user.role = {...user.role, id: role_id}
-        // }
+        
+        if(role_id) {
+            user.role = {...user.role, id: role_id}
+        }
 
         try {
             Object.entries(data).map((entry) => {

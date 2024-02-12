@@ -7,6 +7,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { isFileExtentionSafe, removeFile, saveImageToStorage } from 'helpers/imageStorage';
 import { join } from 'path';
+import { HasPermission } from 'decorators/has-permission.decorators';
 
 @Controller('users')
 @UseInterceptors(ClassSerializerInterceptor) // so exclude option is added
@@ -16,9 +17,10 @@ export class UsersController {
     }
 
     @Get()
+    @HasPermission('users')
     @HttpCode(HttpStatus.OK)
     async findAll(@Query('page') page: number): Promise<PaginatedResult> {
-        return this.usersService.paginate(page)
+        return this.usersService.paginate(page, ['role'])
     }
 
     @Get(':id')

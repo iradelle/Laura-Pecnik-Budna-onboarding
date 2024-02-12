@@ -1,6 +1,8 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity, ManyToOne, JoinColumn } from "typeorm";
 import { Base } from "./base.entity";
 import { Exclude } from "class-transformer";
+import { Role } from "./role.entity";
+import Joi from "@hapi/joi";
 
 @Entity()
 export class User extends Base {
@@ -24,5 +26,7 @@ export class User extends Base {
     // @Exclude()// will not show when searching for users
     // refresh_token: string
 
-    // role: Role | null
+    @ManyToOne(() => Role, {onDelete: 'SET NULL'})
+    @JoinColumn({name: 'role_id'})
+    role: Role | null
 }
