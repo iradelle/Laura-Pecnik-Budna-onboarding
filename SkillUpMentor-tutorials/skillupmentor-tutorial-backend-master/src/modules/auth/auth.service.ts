@@ -6,7 +6,7 @@ import { User } from 'entities/user.entity';
 import { RegisterUserDto } from './dto/register-user.dto';
 import { hash, compareHash } from 'utils/bcrypt';
 import { Request } from 'express';
-import { JwtType } from 'interfaces/auth.interface';
+import { CookieType, JwtType } from 'interfaces/auth.interface';
 
 @Injectable()
 export class AuthService {

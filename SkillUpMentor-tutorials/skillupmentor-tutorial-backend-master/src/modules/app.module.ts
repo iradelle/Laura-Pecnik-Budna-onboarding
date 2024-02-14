@@ -4,12 +4,13 @@ import { configValidationSchema } from 'config/schema.config';
 import { DatabaseModule } from './database/database.module';
 import { LoggerMiddleware } from 'middleware/logger.middleware';
 import { UsersModule } from 'users/users.module';
-import { AuthModule } from 'auth/auth.module';
+import { AuthModule } from './auth/auth.module';
 import { RolesModule } from './roles/roles.module';
 import { PermissionsModule } from './permissions/permissions.module';
 import { APP_GUARD } from '@nestjs/core';
-import { JwtAuthGuard } from 'auth/guards/jwt.guard';
+import { JwtAuthGuard } from './auth/guards/jwt.guard';
 import { PermissionGuard } from './permissions/guards/permission.guard';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { PermissionGuard } from './permissions/guards/permission.guard';
     AuthModule,
     RolesModule,
     PermissionsModule,
+    ProductsModule,
   ],
   controllers: [],
   providers: [{
