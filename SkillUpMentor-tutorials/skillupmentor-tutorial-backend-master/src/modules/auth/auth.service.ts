@@ -44,7 +44,7 @@ export class AuthService {
         const {password, ...user} = await this.usersService.findById(userFromRequest.id, ['role'])
         const accessToken = await this.generateToken(user.id, user.email, JwtType.ACCESS_TOKEN)
         const accessTokenCookie = await this.generateCookie(accessToken, CookieType.ACCESS_TOKEN)
-        const refreshToken = await this this.generateToken(user.id, user.email, JwtType.REFRESH_TOKEN)
+        const refreshToken = await  this.generateToken(user.id, user.email, JwtType.REFRESH_TOKEN)
         const refreshTokenCookie = this.generateCookie(refreshToken, JwtType.REFRESH_TOKEN)
 
         try {

@@ -1,3 +1,4 @@
+import { date } from '@hapi/joi';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Order } from 'entities/order.entity';
@@ -45,5 +46,26 @@ export class OrdersService extends AbstractService{
 
         const csv = parser.parse(json)
         response.setHeader('Content-Type', 'text/csv')
+        response.attachment('orders.csv')
+        response.send(csv)
+    }
+
+    async chart(): Promise<{date: string; sum: string}[]> {
+        const apiData = await this.ordersRepository.query(`
+        SELECT to_date(cast(o.created_at as TEXT), %Y-%m-%d) as date, sum(oi.price * oi.quantity) as sum FROM "order" o 
+        JOIN "order_item" oi ON o.id = oi.order_id
+        GROUP BY date;
+        `)
+
+        // split date and time formate to remove time
+        const chartData: {date: string; sum: string}[] = []
+        for (let index = 0; index < apiData.length; index++) {
+            chartData.push({
+                date: (apiData[index].date as Date).toISOString().split('T')[0],
+                sum: apiData[index].sum,
+            })
+        }
+
+        return chartData
     }
 }

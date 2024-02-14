@@ -8,7 +8,9 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { isFileExtentionSafe, removeFile, saveImageToStorage } from 'helpers/imageStorage';
 import { join } from 'path';
 import { HasPermission } from 'decorators/has-permission.decorators';
+import { ApiBadRequestResponse, ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('users')
 @Controller('users')
 @UseInterceptors(ClassSerializerInterceptor) // so exclude option is added
 export class UsersController {
@@ -16,6 +18,8 @@ export class UsersController {
 
     }
 
+    @ApiCreatedResponse({description: 'List all users.'})
+    @ApiBadRequestResponse({description: 'Error for list of users'})
     @Get()
     @HasPermission('users')
     @HttpCode(HttpStatus.OK)
@@ -29,6 +33,8 @@ export class UsersController {
         return this.usersService.findById(id)
     }
 
+    @ApiCreatedResponse({description: 'Create new users.'})
+    @ApiBadRequestResponse({description: 'Error for creating users'})
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() createUserDto: CreateUserDto): Promise<User> {

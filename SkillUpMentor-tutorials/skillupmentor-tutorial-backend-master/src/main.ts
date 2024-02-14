@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser'
 import express from 'express'
 import { url } from 'inspector'
 import Logging from 'library/logging'
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -22,6 +23,17 @@ async function bootstrap() {
 
   // setup to display files
   app.use('/files', express.static('files')) // v tem diru bojo vsi file-i.. ustvarjen bo avtomatsko
+
+  // setup swagger
+  const config = new DocumentBuilder()
+  .setTitle('NestJS Tutorial API')
+  .setDescription('This is API for NestJS tutorial.')
+  .setVersion('1.0.0')
+  .build()
+
+  const document = SwaggerModule.createDocument(app, config)
+  SwaggerModule.setup('/', app, document)
+  // setup swagger
 
   const PORT = process.env.PORT || 8080
   await app.listen(PORT)

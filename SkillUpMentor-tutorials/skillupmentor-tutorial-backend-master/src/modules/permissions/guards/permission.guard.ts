@@ -1,6 +1,6 @@
 import { CanActivate, ExecutionContext, Injectable } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
-import { AuthService } from "auth/auth.service";
+import { AuthService } from "modules/auth/auth.service";
 import { Role } from "entities/role.entity";
 import { User } from "entities/user.entity";
 import { Observable } from "rxjs";
