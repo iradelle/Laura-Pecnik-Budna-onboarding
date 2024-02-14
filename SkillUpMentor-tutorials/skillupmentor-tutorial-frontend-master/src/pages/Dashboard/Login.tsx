@@ -1,12 +1,12 @@
-import DashboardLayout from "components/ui/DashboardLayout";
+import Layout from "components/ui/Layout";
 import { FC } from "react";
 
 const Login: FC = () => {
     return(
-        <DashboardLayout>
+        <Layout>
             {/* <LoginForm /> */}
             Login
-        </DashboardLayout>
+        </Layout>
     )
 }
 
