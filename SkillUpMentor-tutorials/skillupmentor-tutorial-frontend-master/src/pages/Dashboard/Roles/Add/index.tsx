@@ -1,9 +1,13 @@
+import CreateUpdateRoleForm from "components/role/CreateUpdateRoleForm/CreateUpdateRoleForm";
 import DashboardLayout from "components/ui/DashboardLayout";
 import { FC } from "react";
 
 const DashboardRolesAdd: FC = () => {
     return(
-        <DashboardLayout>DashboardRolesAdd</DashboardLayout>
+        <DashboardLayout>
+            <h1 className="mb-4 text-center">Create a new role</h1>
+            <CreateUpdateRoleForm/>
+        </DashboardLayout>
     )
 }
 
